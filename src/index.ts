@@ -62,6 +62,14 @@ const editor = monaco.editor.create(editorDiv, {
 save.addEventListener("click", () => {
     const HTMLData = editor.getValue();
     localStorage.setItem("HTMLData", JSON.stringify(HTMLData));
+    Toastify({
+        text: "Saved to local storage 🎉",
+        duration: 800,
+        gravity: "top",
+        position: "center",
+        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+        stopOnFocus: false,
+    }).showToast();
 });
 
 copy.addEventListener("click", () => {
