@@ -1,24 +1,27 @@
-HTML EDITOR
+# HTML Editor
 
-  Small editor app for writing and locally saving HTML. 
-App uses webpack to build the components for distribution and deployment.
-Code has the variables, functions etc defined in with typescript.
-Monaco editor package library for creating the editor.
-Editor is main thing, but it has added features: 
-  
-  BUTTONS:
-  - SAVE: saves the entire HTML inside the editor and puts it to local storage, stored code is saved and rerendered in editor upon page refresh
-  - COPY: copies entire HTML and puts it to clipboard
-  - PASTE: inserts (pastes) the text from clipboard at the current caret position inside the editor. Text after the pasted text gets moved forward for the amount of characters the pasted text contains
-  - INSERT IMAGE: inserts the <img> tag with default img size and placeholder "src"
+Small editor app for writing and locally saving HTML. 
+The app uses webpack to build the components for distribution and deployment.
+The code itself is written in Typescript.
+The app uses the Monaco library for creating the editor.
 
-  CUSTOMIZATION PANEL: 
-  
-  a checkboxes for each button. unchecking the box removes the referenced button, and checking inserts it. By default, all the boxes are checked. Advantage of this feature is that you can
-  arrange the order of the buttons according to preference; disadvantage is the lack of fixed order of the buttons that you can always rely upon staying the same independently of your toggle/untoggle actions.
+## Features
+Besides the editor, the app has these features: 
 
-I wil try to make the customization preferences also permanent upon page reload. I'm currently having issues with succesfull parsing from local storage and insertion of data into the code
+### Buttons
+  - **Save**: saves the entire HTML inside the editor and puts it into local storage. The stored code is saved and rerendered in editor upon page reload
+  - **Copy**: copies entire editor content and puts it into the clipboard
+  - **Paste**: inserts  the text from clipboard at the current caret position inside the editor.
+  - **Insert Image**: inserts the `<img>` tag with default image size and placeholder `src`
+
+### Customization Panel
+The customization offers checkboxes to show or hide each button listed above. By default, all buttons are enabled. Enabling and disabling the buttons also allows to reorder them according to user preference.
+
+Persistency for the customization preferences persistent upon page reload is under development.
     
-SETUP:
-
-after cloning run `npm i`  to install the dependencies, then `npm start`  to run in dev mode. Run `npm run build` to build for distribution.
+## Setup and Usage
+ 1. Clone the Git repository
+ 1. Install the dependencies with ``npm i``
+ 1. Run ``npm start`` to launch the development server
+ 1. Open the app on [http://localhost:8080](http://localhost:8080)
+ 1. Run ``npm run build`` to build for distribution. The build is found in the ``dist`` directory.
