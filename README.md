@@ -14,6 +14,8 @@ Editor is main thing, but it has added features:
 - CUSTOMIZATION PANEL: has the checkboxes for each button. unchecking the box removes the referenced button, and checking inserts it. by default, all the boxes are checked. Advvantage of this feature is that you can
   arrange the order of the buttons according to preference; disadvantage is the lack of fixed order of the buttons that you can always rely upon staying the same independently of your toggle/untoggle actions.
 
-  I wil try to make the costumization preferences also permanent upon page reload. I'm currently having issues with succesfull parsing from local storage and insertion of data into the code
+I wil try to make the costumization preferences also permanent upon page reload. I'm currently having issues with succesfull parsing from local storage and insertion of data into the code
     
-SETUP: after cloning run `npm i`  to install the dependencies, then `npm start`  to run in dev mode. Run `npm run build` to build for distribution.
+SETUP:
+
+after cloning run `npm i`  to install the dependencies, then `npm start`  to run in dev mode. Run `npm run build` to build for distribution.
