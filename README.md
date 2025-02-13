@@ -1,6 +1,6 @@
 HTML EDITOR
 
-Small editor app for writing and locally saving HTML. 
+  Small editor app for writing and locally saving HTML. 
 App uses webpack to build the components for distribution and deployment.
 Code has the variables, functions etc defined in with typescript.
 Monaco editor package library for creating the editor.
