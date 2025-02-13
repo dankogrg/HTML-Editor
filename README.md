@@ -13,6 +13,7 @@ Editor is main thing, but it has added features:
   - INSERT IMAGE: inserts the <img> tag with default img size and placeholder "src"
 
   CUSTOMIZATION PANEL: 
+  
   a checkboxes for each button. unchecking the box removes the referenced button, and checking inserts it. By default, all the boxes are checked. Advantage of this feature is that you can
   arrange the order of the buttons according to preference; disadvantage is the lack of fixed order of the buttons that you can always rely upon staying the same independently of your toggle/untoggle actions.
 
