@@ -56,7 +56,7 @@ const createTag = (
     className: string,
     label: string
 ): HTMLElement => {
-    const element = document.createElement(tagName);
+    const element: HTMLElement = document.createElement(tagName);
     element.innerText = label;
     element.className = className;
     return element;
@@ -72,38 +72,36 @@ document.body.appendChild(container);
 
 //adding buttons into container
 options.forEach((option) => {
-    if (option.checked) {
-        option.tag = createTag("button", "button", option.label);
-        container.appendChild(option.tag);
-    }
+    option.tag = createTag("button", "button", option.label);
+    container.appendChild(option.tag);
 });
 
 //function that creates the customization form
 const createForm = (): HTMLElement => {
     //form
-    const form = document.createElement("form");
+    const form: HTMLElement = document.createElement("form");
     form.className = "customization";
 
     //header
-    const title = document.createElement("div");
+    const title: HTMLElement = document.createElement("div");
     title.innerText = "Customize buttons";
     title.style.borderBottom = "solid 1px";
     form.appendChild(title);
 
     //checkboxes
     options.forEach((option) => {
-        const div = document.createElement("div");
+        const div: HTMLElement = document.createElement("div");
         div.style.padding = "2px";
         div.style.display = "flex";
 
         //input
-        const input = document.createElement("input");
+        const input: HTMLInputElement = document.createElement("input");
         input.setAttribute("type", "checkbox");
         input.setAttribute("id", option.id);
         input.checked = option.checked;
 
         //label
-        const label = document.createElement("label");
+        const label: HTMLLabelElement = document.createElement("label");
         label.setAttribute("for", option.label);
         label.innerText = option.label;
 
@@ -114,6 +112,7 @@ const createForm = (): HTMLElement => {
         //checkbox listener that removes or inserts the buttons
         input.addEventListener("click", () => {
             option.checked = !option.checked;
+
             if (option.checked) {
                 container.appendChild(option.tag);
             } else {
@@ -129,11 +128,11 @@ const createForm = (): HTMLElement => {
 };
 
 //adding customization form to the side of container div
-const costumization: HTMLElement = createForm();
-container.appendChild(costumization);
+const customization: HTMLElement = createForm();
+container.appendChild(customization);
 
 //this line keeps the div at customization form height even whene ther are no buttons
-container.style.height = String(costumization.offsetHeight) + "px";
+container.style.height = customization.offsetHeight + "px";
 
 //instructions div
 const instructions: HTMLDivElement = createTag(
