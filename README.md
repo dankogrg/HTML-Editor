@@ -16,3 +16,4 @@ Editor is main thing, but it has added features:
 
   I wil try to make the costumization preferences also permanent upon page reload. I'm currently having issues with succesfull parsing from local storage and insertion of data into the code
     
+SETUP: after cloning run `npm i`  to install the dependencies, then `npm start`  to run in dev mode. Run `npm run build` to build for distribution.
