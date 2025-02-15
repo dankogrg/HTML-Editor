@@ -48,7 +48,7 @@ window.addEventListener("load", () => {
     if (records) {
         editor.setValue(records);
     }
-    let customRecords = JSON.parse(localStorage.getItem("options"));
+    let customRecords: Option[] = JSON.parse(localStorage.getItem("options"));
     if (customRecords) {
         options = customRecords;
     }
@@ -77,7 +77,7 @@ const container: HTMLDivElement = createTag(
 ) as HTMLDivElement;
 document.body.appendChild(container);
 
-const insertButtons = () => {
+const insertButtons = (): void => {
     //adding buttons into container
     options.forEach((option) => {
         option.tag = createTag("button", "button", option.label);
@@ -143,7 +143,7 @@ const createForm = (): HTMLElement => {
 };
 
 //adding customization form to the side of container div
-const insertCustomization = () => {
+const insertCustomization = (): void => {
     const customization: HTMLElement = createForm();
     container.appendChild(customization);
 
