@@ -48,6 +48,13 @@ window.addEventListener("load", () => {
     if (records) {
         editor.setValue(records);
     }
+    let customRecords = JSON.parse(localStorage.getItem("options"));
+    if (customRecords) {
+        options = customRecords;
+    }
+    //inserting buttons on each page load according the customization preferences
+    insertButtons();
+    insertCustomization();
 });
 
 //function for creating buttons
@@ -70,11 +77,15 @@ const container: HTMLDivElement = createTag(
 ) as HTMLDivElement;
 document.body.appendChild(container);
 
-//adding buttons into container
-options.forEach((option) => {
-    option.tag = createTag("button", "button", option.label);
-    container.appendChild(option.tag);
-});
+const insertButtons = () => {
+    //adding buttons into container
+    options.forEach((option) => {
+        option.tag = createTag("button", "button", option.label);
+        if (option.checked) {
+            container.appendChild(option.tag);
+        }
+    });
+};
 
 //function that creates the customization form
 const createForm = (): HTMLElement => {
@@ -111,14 +122,18 @@ const createForm = (): HTMLElement => {
 
         //checkbox listener that removes or inserts the buttons
         input.addEventListener("click", () => {
+            options.forEach((option) => {
+                if (option.checked) {
+                    container.removeChild(option.tag);
+                }
+            });
             option.checked = !option.checked;
 
-            if (option.checked) {
-                container.appendChild(option.tag);
-            } else {
-                container.removeChild(option.tag);
-            }
-
+            options.forEach((option) => {
+                if (option.checked) {
+                    container.appendChild(option.tag);
+                }
+            });
             //storing the data that deals with buttons to local storage (work in progress)
             localStorage.setItem("options", JSON.stringify(options));
         });
@@ -128,11 +143,13 @@ const createForm = (): HTMLElement => {
 };
 
 //adding customization form to the side of container div
-const customization: HTMLElement = createForm();
-container.appendChild(customization);
+const insertCustomization = () => {
+    const customization: HTMLElement = createForm();
+    container.appendChild(customization);
 
-//this line keeps the div at customization form height even whene ther are no buttons
-container.style.height = customization.offsetHeight + "px";
+    //this line keeps the div at customization form height even whene ther are no buttons
+    container.style.height = customization.offsetHeight + "px";
+};
 
 //instructions div
 const instructions: HTMLDivElement = createTag(
